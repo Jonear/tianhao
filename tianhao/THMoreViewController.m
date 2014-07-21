@@ -38,6 +38,8 @@
     [super viewWillAppear:animated];
     
     self.tabBarController.title = self.title;
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning

@@ -12,26 +12,35 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="坑爹思密达文化旅游区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="16">
-                    <rect key="frame" x="82" y="7" width="166" height="26"/>
+                    <rect key="frame" x="68" y="8" width="131" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="坑爹圣地" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="31">
-                    <rect key="frame" x="82" y="36" width="166" height="18"/>
+                    <rect key="frame" x="66" y="42" width="133" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" id="bwc-ga-AGh">
-                    <rect key="frame" x="20" y="10" width="50" height="50"/>
+                    <rect key="frame" x="10" y="10" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E2t-Hf-mYc">
+                    <rect key="frame" x="199" y="8" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="phone">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="callButton" destination="E2t-Hf-mYc" id="8cM-Yd-zdh"/>
+                <outlet property="imageView" destination="bwc-ga-AGh" id="JS1-xQ-khx"/>
                 <outlet property="lbDetail" destination="31" id="2dC-Fq-zbT"/>
                 <outlet property="lbTitle" destination="16" id="qIN-pJ-yWp"/>
             </connections>
@@ -39,5 +48,6 @@
     </objects>
     <resources>
         <image name="DefaultImage" width="102" height="102"/>
+        <image name="phone" width="128" height="128"/>
     </resources>
 </document>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2098E1EB-4676-4175-8B7B-6DD16B628858</string>
+	<key>IDESourceControlProjectName</key>
+	<string>tianhao</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>758ECC70-646A-4E35-979E-0853A035B8EC</key>
+		<string>https://github.com/Jonear/tianhao.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tianhao.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>758ECC70-646A-4E35-979E-0853A035B8EC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jonear/tianhao.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>758ECC70-646A-4E35-979E-0853A035B8EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>758ECC70-646A-4E35-979E-0853A035B8EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tianhao-</string>
+		</dict>
+	</array>
+</dict>
+</plist>

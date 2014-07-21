@@ -8,7 +8,10 @@
 - (id)initWithLatitude:(CLLocationDegrees)latitude
 		  andLongitude:(CLLocationDegrees)longitude;
 
-@property(nonatomic, copy) NSString *title;
-@property(nonatomic, copy) NSString *subtitle;
+@property (nonatomic, strong) NSString *iconUrl;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
+
+@property (nonatomic, strong) NSString *telephone;
 
 @end

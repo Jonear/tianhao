@@ -20,6 +20,9 @@
     if (self) {
         // Custom initialization
         self.title = @"产品";
+        
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon_product_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_product"]];
+        
     }
     return self;
 }
@@ -35,6 +38,7 @@
     [super viewWillAppear:animated];
     
     self.tabBarController.title = self.title;
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning

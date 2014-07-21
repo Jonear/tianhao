@@ -45,6 +45,9 @@
         // Custom initialization
         self.title = @"首页";
         
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon_home_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_home"]];
+        
+        
         _announcementData = [[NSMutableArray alloc] init];
         _minAnnouncementID = 0;
         
@@ -130,6 +133,8 @@
     [super viewWillAppear:animated];
     
     self.tabBarController.title = self.title;
+    
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)didReceiveMemoryWarning

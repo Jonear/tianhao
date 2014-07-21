@@ -14,12 +14,15 @@
 #import "JingDianMapCell.h"
 #import "BasicMapAnnotation.h"
 #import "THAddress.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+#import "THCommonTableViewCell.h"
 
 #define DEFAULTSPAN 1000
 
-@interface THDiscoverViewController () <MKMapViewDelegate>
+@interface THDiscoverViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -27,6 +30,9 @@
 {
     CalloutMapAnnotation *_calloutAnnotation;
     NSArray *_addressArray;
+    UIButton *_moreButton;
+    UIBarButtonItem *_rightItem;
+    int _showModel;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +41,7 @@
     if (self) {
         // Custom initialization
         self.title = @"附近";
+        _showModel = 0;
         _addressArray = [[NSArray alloc] init];
         
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"icon_discover_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_discover"]];
@@ -49,6 +56,18 @@
     [self fetchAddress];
     
     _mapView.delegate = self;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [_tableView setHidden:YES];
+    
+    _moreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [_moreButton setImage:[UIImage imageNamed:@"icon_menu"] forState:UIControlStateNormal];
+    [_moreButton setImage:[UIImage imageNamed:@"icon_product_selected"] forState:UIControlStateHighlighted];
+    [_moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -20)];
+    [_moreButton addTarget:self action:@selector(changeAddressModel) forControlEvents:UIControlEventTouchUpInside];
+    _rightItem = [[UIBarButtonItem alloc] initWithCustomView:_moreButton];
+    
+    [self.tabBarController.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -56,6 +75,7 @@
     [super viewWillAppear:animated];
     
     self.tabBarController.title = self.title;
+    self.tabBarController.navigationItem.rightBarButtonItem = _rightItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +88,6 @@
 {
     [THAddressModel fetchAddress:0
                          success:^(NSArray *array) {
-                             NSLog(@"%@", array.description);
                              [self loadPinInMap:array];
                          } failure:^(NSError *error) {
                              
@@ -98,6 +117,40 @@
     }
     
     [_mapView addAnnotations:annArray];
+    
+    //打开列表可选模式
+    [self.tabBarController.navigationItem.rightBarButtonItem setEnabled:YES];
+}
+
+- (void)changeAddressModel
+{
+    if (_showModel == 0) {
+        _showModel = 1;
+        [_mapView setHidden:YES];
+        [_tableView reloadData];
+        [_tableView setHidden:NO];
+    } else {
+        _showModel = 0;
+        [_mapView setHidden:NO];
+        [_tableView setHidden:YES];
+    }
+}
+
+- (void)callTo:(NSString *)phone
+{
+    if (phone) {
+        
+        NSString *telUrl = [NSString stringWithFormat:@"telprompt:%@",phone];
+        
+        NSURL *url = [[NSURL alloc] initWithString:telUrl];
+        
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
+- (void)callButtonClick:(UIButton *)button
+{
+    [self callTo:button.titleLabel.text];
 }
 
 #pragma mark -MKMapViewDelegate
@@ -121,7 +174,12 @@
                               initWithLatitude:view.annotation.coordinate.latitude
                               andLongitude:view.annotation.coordinate.longitude];
         
-//        _calloutAnnotation.title = view.annotation.title;
+        BasicMapAnnotation *ann = (BasicMapAnnotation *)view.annotation;
+        THAddress *add = [_addressArray objectAtIndex:ann.index];
+        _calloutAnnotation.title = add.name;
+        _calloutAnnotation.subtitle = add.address;
+        _calloutAnnotation.iconUrl = add.iconUrl;
+        _calloutAnnotation.telephone = add.telephone;
         [mapView addAnnotation:_calloutAnnotation];
 	}
 }
@@ -147,14 +205,24 @@
     }
     
 	if ([annotation isKindOfClass:[CalloutMapAnnotation class]]) {
-        
+        CalloutMapAnnotation *ann = (CalloutMapAnnotation *)annotation;
         CallOutAnnotationView *annotationView = (CallOutAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutView"];
         if (!annotationView) {
             annotationView = [[CallOutAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CalloutView"];
             JingDianMapCell  *cell = [[[NSBundle mainBundle] loadNibNamed:@"JingDianMapCell" owner:self options:nil] objectAtIndex:0];
+            cell.tag = 10086;
             [annotationView.contentView addSubview:cell];
             
             [annotationView setUserInteractionEnabled:YES];
+        }
+        JingDianMapCell *cell = (JingDianMapCell *)[annotationView viewWithTag:10086];
+        if (cell) {
+            NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, ann.iconUrl];
+            [cell.imageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"]];
+            [cell.lbTitle setText:ann.title];
+            [cell.lbDetail setText:ann.subtitle];
+            [cell.callButton setTitle:ann.telephone forState:UIControlStateNormal];
+            [cell.callButton addTarget:self action:@selector(callButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         }
         
         return annotationView;
@@ -174,5 +242,53 @@
     return nil;
 }
 
+#pragma mark -UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _addressArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *tableViewCellIdentify = @"tableViewCellIdentify";
+    
+    THCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewCellIdentify];
+    if (!cell) {
+        [tableView registerNib:[UINib nibWithNibName:@"THCommonTableViewCell" bundle:nil] forCellReuseIdentifier:tableViewCellIdentify];
+        cell = [tableView dequeueReusableCellWithIdentifier:tableViewCellIdentify];
+    }
+    
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    
+    THAddress *address = [_addressArray objectAtIndex:indexPath.row];
+    NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, address.iconUrl];
+    [cell.iconImageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"] options:SDWebImageRetryFailed];
+    [cell.titleLabel setText:address.name];
+    [cell.contentLabel setText:address.address];
+    [cell.dateTimeLabel setText:@""];
+ 
+    
+    return cell;
+}
+
+#pragma mark -UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    THAddress *address = [_addressArray objectAtIndex:indexPath.row];
+    
+    if (address) {
+        [self callTo:address.telephone];
+    }
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90.f;
+}
 
 @end
