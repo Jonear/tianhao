@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="THHomeViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="THProductDetailViewController">
             <connections>
-                <outlet property="tableView" destination="6O8-zx-8Yj" id="e3A-dx-8ex"/>
+                <outlet property="tableView" destination="1DY-c1-D2x" id="VQz-Jx-tPY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,22 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6O8-zx-8Yj">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="514"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1DY-c1-D2x">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="KEX-6q-XGW"/>
-                        <outlet property="delegate" destination="-1" id="068-Qd-fsf"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="6O8-zx-8Yj" secondAttribute="trailing" id="F3O-Wo-vhm"/>
-                <constraint firstAttribute="bottom" secondItem="6O8-zx-8Yj" secondAttribute="bottom" constant="54" id="P6O-3u-Z8p"/>
-                <constraint firstItem="6O8-zx-8Yj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="btW-l2-Ijg"/>
-                <constraint firstItem="6O8-zx-8Yj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w6b-cQ-Pd4"/>
+                <constraint firstItem="1DY-c1-D2x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TaT-XS-Qrj"/>
+                <constraint firstAttribute="trailing" secondItem="1DY-c1-D2x" secondAttribute="trailing" id="rYf-t1-omg"/>
+                <constraint firstItem="1DY-c1-D2x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wHE-Xa-hP9"/>
+                <constraint firstAttribute="bottom" secondItem="1DY-c1-D2x" secondAttribute="bottom" id="xSA-zp-jr2"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

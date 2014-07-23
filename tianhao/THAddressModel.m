@@ -13,9 +13,8 @@
 @implementation THAddressModel
 
 
-+ (void)fetchAddress:(int)aid
-             success:(void (^)(NSArray *))success
-             failure:(void (^)(NSError *))failure
++ (void)fetchAddressWithSuccess:(void (^)(NSArray *))success
+                        Failure:(void (^)(NSError *))failure
 {
     RDHttpManager *manager = [RDHttpManager manager];
     [manager PostRequest:[NSString stringWithFormat:@"%@/fetchAddress", THServerUrl]

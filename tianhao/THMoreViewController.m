@@ -7,6 +7,9 @@
 //
 
 #import "THMoreViewController.h"
+#import "THAboutViewController.h"
+#import "THAboutTianhaoViewController.h"
+#import "THAboutFilterViewController.h"
 
 @interface THMoreViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -69,7 +72,7 @@
     if (indexPath.row == 0) {
         [cell.textLabel setText:@"关于"];
     } else if (indexPath.row == 1) {
-        [cell.textLabel setText:@"联系我们"];
+        [cell.textLabel setText:@"关于我们"];
     } else if (indexPath.row == 2) {
         [cell.textLabel setText:@"关于滤清器"];
     }
@@ -84,6 +87,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0) {
+        THAboutViewController *aboutViewController = [[THAboutViewController alloc] initWithNibName:@"THAboutViewController" bundle:nil];
+        [self.navigationController pushViewController:aboutViewController animated:YES];
+    } else if (indexPath.row == 1) {
+        THAboutTianhaoViewController *aboutTianhaoViewController = [[THAboutTianhaoViewController alloc] initWithNibName:@"THAboutTianhaoViewController" bundle:nil];
+        [self.navigationController pushViewController:aboutTianhaoViewController animated:YES];
+    } else if (indexPath.row == 2) {
+        THAboutFilterViewController *aboutFilterViewController = [[THAboutFilterViewController alloc] initWithNibName:@"THAboutFilterViewController" bundle:nil];
+        [self.navigationController pushViewController:aboutFilterViewController animated:YES];
+    }
 }
 
 @end

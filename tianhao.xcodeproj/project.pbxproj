@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC4451E6197E0EE800207D2D /* THProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4451E5197E0EE800207D2D /* THProductModel.m */; };
+		DC4451E9197E0EF900207D2D /* THProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4451E8197E0EF900207D2D /* THProduct.m */; };
+		DC4451EC197E3BEA00207D2D /* THCommonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4451EB197E3BEA00207D2D /* THCommonCollectionViewCell.m */; };
+		DC4451EE197E3C0700207D2D /* THCommonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4451ED197E3C0700207D2D /* THCommonCollectionViewCell.xib */; };
+		DC4451F3197E4F1100207D2D /* THProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4451F1197E4F1100207D2D /* THProductDetailViewController.m */; };
+		DC4451F4197E4F1100207D2D /* THProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4451F2197E4F1100207D2D /* THProductDetailViewController.xib */; };
+		DC4451F8197E4FF500207D2D /* THAnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4451F6197E4FF500207D2D /* THAnnouncementViewController.m */; };
+		DC4451F9197E4FF500207D2D /* THAnnouncementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4451F7197E4FF500207D2D /* THAnnouncementViewController.xib */; };
+		DC4451FE197E67E300207D2D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC4451FB197E67E300207D2D /* ProgressHUD.bundle */; };
+		DC4451FF197E67E300207D2D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4451FD197E67E300207D2D /* ProgressHUD.m */; };
 		DC456654193EF107005B5EB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC456653193EF107005B5EB9 /* Foundation.framework */; };
 		DC456656193EF107005B5EB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC456655193EF107005B5EB9 /* CoreGraphics.framework */; };
 		DC456658193EF107005B5EB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC456657193EF107005B5EB9 /* UIKit.framework */; };
@@ -45,7 +55,6 @@
 		DC4566D1193F17EF005B5EB9 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4566C2193F17EF005B5EB9 /* UIImage+WebP.m */; };
 		DC4566D2193F17EF005B5EB9 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4566C4193F17EF005B5EB9 /* UIImageView+WebCache.m */; };
 		DC4566D5193F1804005B5EB9 /* RDHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4566D4193F1804005B5EB9 /* RDHttpManager.m */; };
-		DC4566D9193F1823005B5EB9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4566D8193F1823005B5EB9 /* MBProgressHUD.m */; };
 		DC4566DD193F191A005B5EB9 /* THCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4566DB193F191A005B5EB9 /* THCommonTableViewCell.m */; };
 		DC4566DE193F191A005B5EB9 /* THCommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4566DC193F191A005B5EB9 /* THCommonTableViewCell.xib */; };
 		DCA0815C19698A1C009682FB /* THAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA0815B19698A1C009682FB /* THAddress.m */; };
@@ -56,6 +65,12 @@
 		DCA0816D196AD6AB009682FB /* JingDianMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA08168196AD6AB009682FB /* JingDianMapCell.m */; };
 		DCA0816E196AD6AB009682FB /* JingDianMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA08169196AD6AB009682FB /* JingDianMapCell.xib */; };
 		DCA08170196ADB62009682FB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA0816F196ADB62009682FB /* pin.png */; };
+		DCBD3DBA197E955E00E94C7B /* THAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBD3DB8197E955E00E94C7B /* THAboutViewController.m */; };
+		DCBD3DBB197E955E00E94C7B /* THAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCBD3DB9197E955E00E94C7B /* THAboutViewController.xib */; };
+		DCBD3DC2197E9A2A00E94C7B /* THAboutTianhaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBD3DC0197E9A2A00E94C7B /* THAboutTianhaoViewController.m */; };
+		DCBD3DC3197E9A2A00E94C7B /* THAboutTianhaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCBD3DC1197E9A2A00E94C7B /* THAboutTianhaoViewController.xib */; };
+		DCBD3DC7197E9ED600E94C7B /* THAboutFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBD3DC5197E9ED600E94C7B /* THAboutFilterViewController.m */; };
+		DCBD3DC8197E9ED600E94C7B /* THAboutFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCBD3DC6197E9ED600E94C7B /* THAboutFilterViewController.xib */; };
 		DCC3DF8619681C47001ABF34 /* THAnnouncement.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC3DF8519681C47001ABF34 /* THAnnouncement.m */; };
 		DCC3DF8C196820D2001ABF34 /* THAnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC3DF8B196820D2001ABF34 /* THAnnouncementModel.m */; };
 /* End PBXBuildFile section */
@@ -71,6 +86,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC4451E4197E0EE800207D2D /* THProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THProductModel.h; sourceTree = "<group>"; };
+		DC4451E5197E0EE800207D2D /* THProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THProductModel.m; sourceTree = "<group>"; };
+		DC4451E7197E0EF900207D2D /* THProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THProduct.h; sourceTree = "<group>"; };
+		DC4451E8197E0EF900207D2D /* THProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THProduct.m; sourceTree = "<group>"; };
+		DC4451EA197E3BEA00207D2D /* THCommonCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCommonCollectionViewCell.h; sourceTree = "<group>"; };
+		DC4451EB197E3BEA00207D2D /* THCommonCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCommonCollectionViewCell.m; sourceTree = "<group>"; };
+		DC4451ED197E3C0700207D2D /* THCommonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THCommonCollectionViewCell.xib; sourceTree = "<group>"; };
+		DC4451F0197E4F1100207D2D /* THProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THProductDetailViewController.h; sourceTree = "<group>"; };
+		DC4451F1197E4F1100207D2D /* THProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THProductDetailViewController.m; sourceTree = "<group>"; };
+		DC4451F2197E4F1100207D2D /* THProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THProductDetailViewController.xib; sourceTree = "<group>"; };
+		DC4451F5197E4FF500207D2D /* THAnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAnnouncementViewController.h; sourceTree = "<group>"; };
+		DC4451F6197E4FF500207D2D /* THAnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAnnouncementViewController.m; sourceTree = "<group>"; };
+		DC4451F7197E4FF500207D2D /* THAnnouncementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THAnnouncementViewController.xib; sourceTree = "<group>"; };
+		DC4451FB197E67E300207D2D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		DC4451FC197E67E300207D2D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		DC4451FD197E67E300207D2D /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		DC456650193EF107005B5EB9 /* tianhao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tianhao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC456653193EF107005B5EB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC456655193EF107005B5EB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,8 +167,6 @@
 		DC4566C4193F17EF005B5EB9 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		DC4566D3193F1804005B5EB9 /* RDHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDHttpManager.h; sourceTree = "<group>"; };
 		DC4566D4193F1804005B5EB9 /* RDHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDHttpManager.m; sourceTree = "<group>"; };
-		DC4566D7193F1823005B5EB9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		DC4566D8193F1823005B5EB9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		DC4566DA193F191A005B5EB9 /* THCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCommonTableViewCell.h; sourceTree = "<group>"; };
 		DC4566DB193F191A005B5EB9 /* THCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCommonTableViewCell.m; sourceTree = "<group>"; };
 		DC4566DC193F191A005B5EB9 /* THCommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THCommonTableViewCell.xib; sourceTree = "<group>"; };
@@ -155,6 +184,15 @@
 		DCA08168196AD6AB009682FB /* JingDianMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JingDianMapCell.m; sourceTree = "<group>"; };
 		DCA08169196AD6AB009682FB /* JingDianMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JingDianMapCell.xib; sourceTree = "<group>"; };
 		DCA0816F196ADB62009682FB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		DCBD3DB7197E955E00E94C7B /* THAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAboutViewController.h; sourceTree = "<group>"; };
+		DCBD3DB8197E955E00E94C7B /* THAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAboutViewController.m; sourceTree = "<group>"; };
+		DCBD3DB9197E955E00E94C7B /* THAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THAboutViewController.xib; sourceTree = "<group>"; };
+		DCBD3DBF197E9A2A00E94C7B /* THAboutTianhaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAboutTianhaoViewController.h; sourceTree = "<group>"; };
+		DCBD3DC0197E9A2A00E94C7B /* THAboutTianhaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAboutTianhaoViewController.m; sourceTree = "<group>"; };
+		DCBD3DC1197E9A2A00E94C7B /* THAboutTianhaoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THAboutTianhaoViewController.xib; sourceTree = "<group>"; };
+		DCBD3DC4197E9ED600E94C7B /* THAboutFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAboutFilterViewController.h; sourceTree = "<group>"; };
+		DCBD3DC5197E9ED600E94C7B /* THAboutFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAboutFilterViewController.m; sourceTree = "<group>"; };
+		DCBD3DC6197E9ED600E94C7B /* THAboutFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THAboutFilterViewController.xib; sourceTree = "<group>"; };
 		DCC3DF8419681C47001ABF34 /* THAnnouncement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAnnouncement.h; sourceTree = "<group>"; };
 		DCC3DF8519681C47001ABF34 /* THAnnouncement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAnnouncement.m; sourceTree = "<group>"; };
 		DCC3DF8A196820D2001ABF34 /* THAnnouncementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAnnouncementModel.h; sourceTree = "<group>"; };
@@ -186,6 +224,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC4451FA197E67E300207D2D /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DC4451FB197E67E300207D2D /* ProgressHUD.bundle */,
+				DC4451FC197E67E300207D2D /* ProgressHUD.h */,
+				DC4451FD197E67E300207D2D /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		DC456647193EF107005B5EB9 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +268,8 @@
 		DC456659193EF107005B5EB9 /* tianhao */ = {
 			isa = PBXGroup;
 			children = (
+				DCA08159196989C3009682FB /* Network */,
+				DCC3DF8319681BBB001ABF34 /* model */,
 				DC4566A6193F17D5005B5EB9 /* External */,
 				DC456688193EF309005B5EB9 /* Common */,
 				DC4566A5193F1783005B5EB9 /* VCS */,
@@ -267,6 +317,9 @@
 				DC456683193EF222005B5EB9 /* THHomeViewController.h */,
 				DC456684193EF222005B5EB9 /* THHomeViewController.m */,
 				DC456685193EF222005B5EB9 /* THHomeViewController.xib */,
+				DC4451F5197E4FF500207D2D /* THAnnouncementViewController.h */,
+				DC4451F6197E4FF500207D2D /* THAnnouncementViewController.m */,
+				DC4451F7197E4FF500207D2D /* THAnnouncementViewController.xib */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -283,6 +336,9 @@
 				DC4566DA193F191A005B5EB9 /* THCommonTableViewCell.h */,
 				DC4566DB193F191A005B5EB9 /* THCommonTableViewCell.m */,
 				DC4566DC193F191A005B5EB9 /* THCommonTableViewCell.xib */,
+				DC4451EA197E3BEA00207D2D /* THCommonCollectionViewCell.h */,
+				DC4451EB197E3BEA00207D2D /* THCommonCollectionViewCell.m */,
+				DC4451ED197E3C0700207D2D /* THCommonCollectionViewCell.xib */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -293,6 +349,9 @@
 				DC45668F193EF809005B5EB9 /* THProductViewController.h */,
 				DC456690193EF809005B5EB9 /* THProductViewController.m */,
 				DC456691193EF809005B5EB9 /* THProductViewController.xib */,
+				DC4451F0197E4F1100207D2D /* THProductDetailViewController.h */,
+				DC4451F1197E4F1100207D2D /* THProductDetailViewController.m */,
+				DC4451F2197E4F1100207D2D /* THProductDetailViewController.xib */,
 			);
 			name = product;
 			sourceTree = "<group>";
@@ -313,6 +372,15 @@
 				DC45669B193EFBE1005B5EB9 /* THMoreViewController.h */,
 				DC45669C193EFBE1005B5EB9 /* THMoreViewController.m */,
 				DC45669D193EFBE1005B5EB9 /* THMoreViewController.xib */,
+				DCBD3DB7197E955E00E94C7B /* THAboutViewController.h */,
+				DCBD3DB8197E955E00E94C7B /* THAboutViewController.m */,
+				DCBD3DB9197E955E00E94C7B /* THAboutViewController.xib */,
+				DCBD3DBF197E9A2A00E94C7B /* THAboutTianhaoViewController.h */,
+				DCBD3DC0197E9A2A00E94C7B /* THAboutTianhaoViewController.m */,
+				DCBD3DC1197E9A2A00E94C7B /* THAboutTianhaoViewController.xib */,
+				DCBD3DC4197E9ED600E94C7B /* THAboutFilterViewController.h */,
+				DCBD3DC5197E9ED600E94C7B /* THAboutFilterViewController.m */,
+				DCBD3DC6197E9ED600E94C7B /* THAboutFilterViewController.xib */,
 			);
 			name = more;
 			sourceTree = "<group>";
@@ -320,8 +388,6 @@
 		DC4566A5193F1783005B5EB9 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
-				DCA08159196989C3009682FB /* Network */,
-				DCC3DF8319681BBB001ABF34 /* model */,
 				DC45669A193EFBD2005B5EB9 /* more */,
 				DC456694193EFBB3005B5EB9 /* discover */,
 				DC45668E193EF7AE005B5EB9 /* product */,
@@ -333,8 +399,8 @@
 		DC4566A6193F17D5005B5EB9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				DC4451FA197E67E300207D2D /* ProgressHUD */,
 				DCA08160196AD6AB009682FB /* CustomMapCalloutView */,
-				DC4566D6193F1823005B5EB9 /* MBProgressHUD */,
 				DC4566A7193F17EF005B5EB9 /* SDWebImage */,
 			);
 			name = External;
@@ -376,15 +442,6 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		DC4566D6193F1823005B5EB9 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				DC4566D7193F1823005B5EB9 /* MBProgressHUD.h */,
-				DC4566D8193F1823005B5EB9 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		DCA08159196989C3009682FB /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +449,8 @@
 				DCC3DF8B196820D2001ABF34 /* THAnnouncementModel.m */,
 				DCA0815D19698AD6009682FB /* THAddressModel.h */,
 				DCA0815E19698AD6009682FB /* THAddressModel.m */,
+				DC4451E4197E0EE800207D2D /* THProductModel.h */,
+				DC4451E5197E0EE800207D2D /* THProductModel.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -420,6 +479,8 @@
 				DCC3DF8519681C47001ABF34 /* THAnnouncement.m */,
 				DCA0815A19698A1C009682FB /* THAddress.h */,
 				DCA0815B19698A1C009682FB /* THAddress.m */,
+				DC4451E7197E0EF900207D2D /* THProduct.h */,
+				DC4451E8197E0EF900207D2D /* THProduct.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -502,10 +563,17 @@
 			files = (
 				DC456693193EF809005B5EB9 /* THProductViewController.xib in Resources */,
 				DC45665E193EF107005B5EB9 /* InfoPlist.strings in Resources */,
+				DCBD3DBB197E955E00E94C7B /* THAboutViewController.xib in Resources */,
+				DC4451F9197E4FF500207D2D /* THAnnouncementViewController.xib in Resources */,
+				DC4451FE197E67E300207D2D /* ProgressHUD.bundle in Resources */,
 				DC456699193EFBCD005B5EB9 /* THDiscoverViewController.xib in Resources */,
+				DC4451F4197E4F1100207D2D /* THProductDetailViewController.xib in Resources */,
+				DCBD3DC3197E9A2A00E94C7B /* THAboutTianhaoViewController.xib in Resources */,
+				DC4451EE197E3C0700207D2D /* THCommonCollectionViewCell.xib in Resources */,
 				DC456666193EF107005B5EB9 /* Images.xcassets in Resources */,
 				DC456687193EF222005B5EB9 /* THHomeViewController.xib in Resources */,
 				DC4566DE193F191A005B5EB9 /* THCommonTableViewCell.xib in Resources */,
+				DCBD3DC8197E9ED600E94C7B /* THAboutFilterViewController.xib in Resources */,
 				DCA08170196ADB62009682FB /* pin.png in Resources */,
 				DCA0816E196AD6AB009682FB /* JingDianMapCell.xib in Resources */,
 				DC45669F193EFBE1005B5EB9 /* THMoreViewController.xib in Resources */,
@@ -529,31 +597,39 @@
 			files = (
 				DC4566D5193F1804005B5EB9 /* RDHttpManager.m in Sources */,
 				DC4566D2193F17EF005B5EB9 /* UIImageView+WebCache.m in Sources */,
+				DCBD3DBA197E955E00E94C7B /* THAboutViewController.m in Sources */,
+				DCBD3DC2197E9A2A00E94C7B /* THAboutTianhaoViewController.m in Sources */,
 				DC4566C9193F17EF005B5EB9 /* SDWebImageDecoder.m in Sources */,
 				DC4566CC193F17EF005B5EB9 /* SDWebImageManager.m in Sources */,
 				DC45669E193EFBE1005B5EB9 /* THMoreViewController.m in Sources */,
 				DC4566C8193F17EF005B5EB9 /* SDWebImageCompat.m in Sources */,
 				DC4566D1193F17EF005B5EB9 /* UIImage+WebP.m in Sources */,
-				DC4566D9193F1823005B5EB9 /* MBProgressHUD.m in Sources */,
 				DCA0815C19698A1C009682FB /* THAddress.m in Sources */,
 				DC456692193EF809005B5EB9 /* THProductViewController.m in Sources */,
 				DC456686193EF222005B5EB9 /* THHomeViewController.m in Sources */,
 				DC4566A4193F0548005B5EB9 /* UIView+Sizes.m in Sources */,
 				DCA0816A196AD6AB009682FB /* BasicMapAnnotation.m in Sources */,
+				DC4451E6197E0EE800207D2D /* THProductModel.m in Sources */,
 				DCA0816D196AD6AB009682FB /* JingDianMapCell.m in Sources */,
 				DC4566CE193F17EF005B5EB9 /* UIButton+WebCache.m in Sources */,
 				DC4566CD193F17EF005B5EB9 /* SDWebImagePrefetcher.m in Sources */,
 				DC4566CB193F17EF005B5EB9 /* SDWebImageDownloaderOperation.m in Sources */,
 				DC456664193EF107005B5EB9 /* THAppDelegate.m in Sources */,
+				DCBD3DC7197E9ED600E94C7B /* THAboutFilterViewController.m in Sources */,
 				DCA0816B196AD6AB009682FB /* CallOutAnnotationView.m in Sources */,
 				DCC3DF8619681C47001ABF34 /* THAnnouncement.m in Sources */,
 				DC4566C6193F17EF005B5EB9 /* NSData+GIF.m in Sources */,
 				DC4566D0193F17EF005B5EB9 /* UIImage+MultiFormat.m in Sources */,
+				DC4451EC197E3BEA00207D2D /* THCommonCollectionViewCell.m in Sources */,
 				DCA0815F19698AD6009682FB /* THAddressModel.m in Sources */,
+				DC4451E9197E0EF900207D2D /* THProduct.m in Sources */,
 				DC456660193EF107005B5EB9 /* main.m in Sources */,
+				DC4451FF197E67E300207D2D /* ProgressHUD.m in Sources */,
 				DC4566C7193F17EF005B5EB9 /* SDImageCache.m in Sources */,
 				DC45668C193EF332005B5EB9 /* THBaseViewController.m in Sources */,
+				DC4451F3197E4F1100207D2D /* THProductDetailViewController.m in Sources */,
 				DC456698193EFBCD005B5EB9 /* THDiscoverViewController.m in Sources */,
+				DC4451F8197E4FF500207D2D /* THAnnouncementViewController.m in Sources */,
 				DC4566CF193F17EF005B5EB9 /* UIImage+GIF.m in Sources */,
 				DC4566DD193F191A005B5EB9 /* THCommonTableViewCell.m in Sources */,
 				DC4566CA193F17EF005B5EB9 /* SDWebImageDownloader.m in Sources */,

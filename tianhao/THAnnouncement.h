@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *createDate;
-@property (strong, nonatomic) NSString *iconurl;
+@property (strong, nonatomic) NSString *iconUrl;
 
 @end

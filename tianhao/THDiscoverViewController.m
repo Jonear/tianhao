@@ -40,7 +40,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"附近";
+        self.title = @"地址";
         _showModel = 0;
         _addressArray = [[NSArray alloc] init];
         
@@ -86,12 +86,11 @@
 
 - (void)fetchAddress
 {
-    [THAddressModel fetchAddress:0
-                         success:^(NSArray *array) {
-                             [self loadPinInMap:array];
-                         } failure:^(NSError *error) {
+    [THAddressModel fetchAddressWithSuccess:^(NSArray *array) {
+                                [self loadPinInMap:array];
+                            } Failure:^(NSError *error) {
                              
-                         }];
+                            }];
 }
 
 - (void)loadPinInMap:(NSArray *)array

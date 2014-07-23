@@ -10,8 +10,7 @@
 
 @interface THAddressModel : NSObject
 
-+ (void)fetchAddress:(int)aid
-             success:(void (^)(NSArray *))success
-             failure:(void (^)(NSError *))failure;
++ (void)fetchAddressWithSuccess:(void (^)(NSArray *))success
+                        Failure:(void (^)(NSError *))failure;
 
 @end

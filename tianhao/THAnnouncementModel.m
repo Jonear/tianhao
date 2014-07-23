@@ -47,7 +47,7 @@
             ann.aid = [[json objectForKey:@"pk"] integerValue];
             ann.title = [dataDic objectForKey:@"title"];
             ann.content = [dataDic objectForKey:@"detailUrl"];
-            ann.iconurl = [dataDic objectForKey:@"iconUrl"];
+            ann.iconUrl = [dataDic objectForKey:@"iconUrl"];
             ann.createDate = [dataDic objectForKey:@"createDate"];
             
             [dataArray addObject:ann];

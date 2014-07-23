@@ -7,6 +7,7 @@
 //
 
 #import "RDHttpManager.h"
+#import "ProgressHUD.h"
 
 @interface RDHttpManager() <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
@@ -254,6 +255,7 @@
 #pragma mark ---- NSURLConnectionDelegate -----
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    [ProgressHUD showError:@"请求失败，网络异常"];
     if (_failure) {
         _failure(error);
     }

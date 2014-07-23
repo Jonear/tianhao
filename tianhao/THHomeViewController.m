@@ -7,11 +7,18 @@
 //
 
 #import "THHomeViewController.h"
+
 #import "UIView+Sizes.h"
 #import "THCommonTableViewCell.h"
-#import "THAnnouncementModel.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+
+#import "THAnnouncementModel.h"
 #import "THAnnouncement.h"
+#import "THProductModel.h"
+#import "THProduct.h"
+
+#import "THAnnouncementViewController.h"
+#import "THProductDetailViewController.h"
 
 @interface THHomeViewController ()
 
@@ -79,13 +86,12 @@
 
 - (void)addFreshView
 {
-    
     _freshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, PHOTOHEIGHT, 0)];
     [_freshControl addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
     [_tableView addSubview:_freshControl];
     
-    [_tableView setContentOffset:CGPointMake(0, -50)];
-    [_freshControl performSelector:@selector(beginRefreshing) withObject:nil afterDelay:0.f];
+    [_freshControl performSelectorOnMainThread:@selector(beginRefreshing) withObject:nil waitUntilDone:YES];
+    [_bottomRefresh setHidden:YES];
 }
 
 - (void)addLoadMoreButton
@@ -93,7 +99,7 @@
     /******自定义查看更多属性设置******/
     _bottomRefresh = [UIButton buttonWithType:UIButtonTypeCustom];
     [_bottomRefresh setTitle:@"加载更多" forState:UIControlStateNormal];
-    [_bottomRefresh setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_bottomRefresh setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [_bottomRefresh setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 5, 0)];
     [_bottomRefresh addTarget:self action:@selector(upToRefresh) forControlEvents:UIControlEventTouchUpInside];
     _bottomRefresh.frame = CGRectMake(0, 0, 320, 44);
@@ -124,7 +130,6 @@
     
     UIEdgeInsets edgeInsets = _tableView.contentInset;
     edgeInsets.top += segmentedController.height;
-    edgeInsets.bottom = 114;
     [_tableView setContentInset:edgeInsets];
 }
 
@@ -144,7 +149,7 @@
 }
 
 
-#pragma mark -UITableViewDataSource
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -171,27 +176,53 @@
     
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
-    if (_pageIndex == 0) {
+    if (_pageIndex == 0 && _announcementData.count > indexPath.row) {
         THAnnouncement *ann = [_announcementData objectAtIndex:indexPath.row];
-        NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, ann.iconurl];
+        NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, ann.iconUrl];
         [cell.iconImageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"] options:SDWebImageRetryFailed];
         [cell.titleLabel setText:ann.title];
-        [cell.contentLabel setText:ann.createDate];
+        [cell.contentLabel setText:ann.content];
         [cell.dateTimeLabel setText:@""];
-    } else if(_pageIndex == 1) {
-        
+    } else if(_pageIndex == 1 && _recommendData.count > indexPath.row) {
+        THProduct *product = [_recommendData objectAtIndex:indexPath.row];
+        NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, product.iconUrl];
+        [cell.iconImageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"] options:SDWebImageRetryFailed];
+        [cell.titleLabel setText:[NSString stringWithFormat:@"%@ %@",product.name ,product.model]];
+        [cell.contentLabel setText:product.detail];
+        [cell.dateTimeLabel setText:@""];
     } else if(_pageIndex == 2) {
-        
+        THProduct *product = [_newData objectAtIndex:indexPath.row];
+        NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, product.iconUrl];
+        [cell.iconImageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"] options:SDWebImageRetryFailed];
+        [cell.titleLabel setText:[NSString stringWithFormat:@"%@ %@",product.name ,product.model]];
+        [cell.contentLabel setText:product.detail];
+        [cell.dateTimeLabel setText:@""];
     }
     
     return cell;
 }
 
-#pragma mark -UITableViewDelegate
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (_pageIndex == 0) {
+        THAnnouncement *ann = [_announcementData objectAtIndex:indexPath.row];
+        THAnnouncementViewController *announcementViewController = [[THAnnouncementViewController alloc] initWithNibName:@"THAnnouncementViewController" bundle:nil];
+        announcementViewController.announcement = ann;
+        [self.navigationController pushViewController:announcementViewController animated:YES];
+    } else if (_pageIndex == 1) {
+        THProduct *product = [_recommendData objectAtIndex:indexPath.row];
+        THProductDetailViewController *productViewController = [[THProductDetailViewController alloc] initWithNibName:@"THProductDetailViewController" bundle:nil];
+        productViewController.product = product;
+        [self.navigationController pushViewController:productViewController animated:YES];
+    } else if (_pageIndex == 2) {
+        THProduct *product = [_newData objectAtIndex:indexPath.row];
+        THProductDetailViewController *productViewController = [[THProductDetailViewController alloc] initWithNibName:@"THProductDetailViewController" bundle:nil];
+        productViewController.product = product;
+        [self.navigationController pushViewController:productViewController animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -204,14 +235,35 @@
 {
     _pageIndex = sender.selectedSegmentIndex;
     [_tableView reloadData];
+    
+    if (_pageIndex == 0) {
+        [_bottomRefresh setHidden:NO];
+    } else if (_pageIndex == 1){
+        if (_recommendData.count == 0) {
+            [self fetchHotProduct];
+        }
+        [_bottomRefresh setHidden:YES];
+    } else if (_pageIndex == 2){
+        if (_newData.count == 0) {
+            [self fetchNewProduct];
+        }
+        [_bottomRefresh setHidden:YES];
+    }
 }
 
 - (void)pullToRefresh
 {
-    [_activityView stopAnimating];
-    [_bottomRefresh setTitle:@"加载更多" forState:UIControlStateNormal];
-    [_announcementData removeAllObjects];
-    [self fetchAnnouncement:0];
+    if (_pageIndex == 0) {
+        [_activityView stopAnimating];
+        [_bottomRefresh setTitle:@"加载更多" forState:UIControlStateNormal];
+        [_bottomRefresh setEnabled:YES];
+        [_announcementData removeAllObjects];
+        [self fetchAnnouncement:0];
+    } else if (_pageIndex == 1) {
+        [self fetchHotProduct];
+    } else if (_pageIndex == 2){
+        [self fetchNewProduct];
+    }
 }
 
 - (void)upToRefresh
@@ -232,16 +284,45 @@
                                            THAnnouncement *lObject = Array.lastObject;
                                            _minAnnouncementID = lObject.aid;
                                        }
-                                       if (Array && Array.count<20) {
+                                       if (Array.count<20) {
                                            [_activityView stopAnimating];
                                            [_bottomRefresh setTitle:@"没有更多了" forState:UIControlStateNormal];
                                            [_bottomRefresh setEnabled:NO];
                                        }
                                        [_freshControl endRefreshing];
+                                       [_bottomRefresh setHidden:NO];
                                    } failure:^(NSError *error) {
                                        [_freshControl endRefreshing];
-                                       NSLog(@"error:%@", error.description);
+                                       [_bottomRefresh setHidden:YES];
                                    }];
+}
+
+- (void)fetchHotProduct
+{
+    [THProductModel fetchHotProductWithSuccess:^(NSArray *Array) {
+                                           [_recommendData setArray:Array];
+                                           [_tableView reloadData];
+                                           [_freshControl endRefreshing];
+                                           [_bottomRefresh setHidden:YES];
+                                        }
+                                       Failure:^(NSError *error) {
+                                           [_freshControl endRefreshing];
+                                           [_bottomRefresh setHidden:YES];
+                                        }];
+}
+
+- (void)fetchNewProduct
+{
+    [THProductModel fetchNewProductWithSuccess:^(NSArray *Array) {
+                                           [_newData setArray:Array];
+                                           [_tableView reloadData];
+                                           [_freshControl endRefreshing];
+                                           [_bottomRefresh setHidden:YES];
+                                        }
+                                       Failure:^(NSError *error) {
+                                           [_freshControl endRefreshing];
+                                           [_bottomRefresh setHidden:YES];
+                                       }];
 }
 
 
