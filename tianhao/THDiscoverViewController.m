@@ -16,6 +16,7 @@
 #import "THAddress.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "THCommonTableViewCell.h"
+#import "UIView+Sizes.h"
 
 #define DEFAULTSPAN 1000
 
@@ -53,17 +54,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self fetchAddress];
     
     _mapView.delegate = self;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView setHidden:YES];
     
+    if (is_ios7) {
+        _tableView.height -= 50;
+    }
+
+    
     _moreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     [_moreButton setImage:[UIImage imageNamed:@"icon_menu"] forState:UIControlStateNormal];
     [_moreButton setImage:[UIImage imageNamed:@"icon_product_selected"] forState:UIControlStateHighlighted];
-    [_moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -20)];
+    if (is_ios7) {
+        [_moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -20)];
+    }
     [_moreButton addTarget:self action:@selector(changeAddressModel) forControlEvents:UIControlEventTouchUpInside];
     _rightItem = [[UIBarButtonItem alloc] initWithCustomView:_moreButton];
     
@@ -76,6 +83,10 @@
     
     self.tabBarController.title = self.title;
     self.tabBarController.navigationItem.rightBarButtonItem = _rightItem;
+    
+    if (_addressArray.count == 0) {
+        [self fetchAddress];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -67,6 +67,7 @@
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableViewCellIdentify];
+        [cell.textLabel setFont:[UIFont systemFontOfSize:17]];
     }
     
     if (indexPath.row == 0) {

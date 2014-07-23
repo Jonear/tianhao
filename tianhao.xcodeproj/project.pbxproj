@@ -65,6 +65,8 @@
 		DCA0816D196AD6AB009682FB /* JingDianMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA08168196AD6AB009682FB /* JingDianMapCell.m */; };
 		DCA0816E196AD6AB009682FB /* JingDianMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA08169196AD6AB009682FB /* JingDianMapCell.xib */; };
 		DCA08170196ADB62009682FB /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA0816F196ADB62009682FB /* pin.png */; };
+		DCB3D161197FA79C007A749D /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB3D15E197FA79C007A749D /* SVSegmentedControl.m */; };
+		DCB3D162197FA79C007A749D /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB3D160197FA79C007A749D /* SVSegmentedThumb.m */; };
 		DCBD3DBA197E955E00E94C7B /* THAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBD3DB8197E955E00E94C7B /* THAboutViewController.m */; };
 		DCBD3DBB197E955E00E94C7B /* THAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCBD3DB9197E955E00E94C7B /* THAboutViewController.xib */; };
 		DCBD3DC2197E9A2A00E94C7B /* THAboutTianhaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBD3DC0197E9A2A00E94C7B /* THAboutTianhaoViewController.m */; };
@@ -184,6 +186,10 @@
 		DCA08168196AD6AB009682FB /* JingDianMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JingDianMapCell.m; sourceTree = "<group>"; };
 		DCA08169196AD6AB009682FB /* JingDianMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JingDianMapCell.xib; sourceTree = "<group>"; };
 		DCA0816F196ADB62009682FB /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		DCB3D15D197FA79C007A749D /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		DCB3D15E197FA79C007A749D /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		DCB3D15F197FA79C007A749D /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
+		DCB3D160197FA79C007A749D /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
 		DCBD3DB7197E955E00E94C7B /* THAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAboutViewController.h; sourceTree = "<group>"; };
 		DCBD3DB8197E955E00E94C7B /* THAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAboutViewController.m; sourceTree = "<group>"; };
 		DCBD3DB9197E955E00E94C7B /* THAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THAboutViewController.xib; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 		DC4566A6193F17D5005B5EB9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				DCB3D15C197FA79C007A749D /* SVSegmentedControl */,
 				DC4451FA197E67E300207D2D /* ProgressHUD */,
 				DCA08160196AD6AB009682FB /* CustomMapCalloutView */,
 				DC4566A7193F17EF005B5EB9 /* SDWebImage */,
@@ -470,6 +477,17 @@
 				DCA0816F196ADB62009682FB /* pin.png */,
 			);
 			path = CustomMapCalloutView;
+			sourceTree = "<group>";
+		};
+		DCB3D15C197FA79C007A749D /* SVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				DCB3D15D197FA79C007A749D /* SVSegmentedControl.h */,
+				DCB3D15E197FA79C007A749D /* SVSegmentedControl.m */,
+				DCB3D15F197FA79C007A749D /* SVSegmentedThumb.h */,
+				DCB3D160197FA79C007A749D /* SVSegmentedThumb.m */,
+			);
+			path = SVSegmentedControl;
 			sourceTree = "<group>";
 		};
 		DCC3DF8319681BBB001ABF34 /* model */ = {
@@ -614,6 +632,8 @@
 				DC4566CE193F17EF005B5EB9 /* UIButton+WebCache.m in Sources */,
 				DC4566CD193F17EF005B5EB9 /* SDWebImagePrefetcher.m in Sources */,
 				DC4566CB193F17EF005B5EB9 /* SDWebImageDownloaderOperation.m in Sources */,
+				DCB3D162197FA79C007A749D /* SVSegmentedThumb.m in Sources */,
+				DCB3D161197FA79C007A749D /* SVSegmentedControl.m in Sources */,
 				DC456664193EF107005B5EB9 /* THAppDelegate.m in Sources */,
 				DCBD3DC7197E9ED600E94C7B /* THAboutFilterViewController.m in Sources */,
 				DCA0816B196AD6AB009682FB /* CallOutAnnotationView.m in Sources */,
@@ -755,8 +775,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tianhao/tianhao-Prefix.pch";
 				INFOPLIST_FILE = "tianhao/tianhao-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -769,8 +790,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tianhao/tianhao-Prefix.pch";
 				INFOPLIST_FILE = "tianhao/tianhao-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

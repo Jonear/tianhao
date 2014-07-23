@@ -20,6 +20,8 @@
 #import "THAnnouncementViewController.h"
 #import "THProductDetailViewController.h"
 
+#import "SVSegmentedControl.h"
+
 @interface THHomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -75,7 +77,12 @@
     // Do any additional setup after loading the view from its nib.
     
     //增加Segmented
-    [self addSegmentedview];
+    if (is_ios7) {
+        [self addSegmentedView];
+    } else {
+        [self addSegmentedViewForIOS6];
+    }
+
     //增加加载更多按钮
     [self addLoadMoreButton];
     //首次加载
@@ -100,7 +107,7 @@
     _bottomRefresh = [UIButton buttonWithType:UIButtonTypeCustom];
     [_bottomRefresh setTitle:@"加载更多" forState:UIControlStateNormal];
     [_bottomRefresh setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [_bottomRefresh setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 5, 0)];
+    [_bottomRefresh setContentEdgeInsets:UIEdgeInsetsMake(5, 0, 0, 0)];
     [_bottomRefresh addTarget:self action:@selector(upToRefresh) forControlEvents:UIControlEventTouchUpInside];
     _bottomRefresh.frame = CGRectMake(0, 0, 320, 44);
     _activityView= [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(90 , 3, 30, 30)];
@@ -111,7 +118,27 @@
     [_tableView setShowsVerticalScrollIndicator:NO];
 }
 
-- (void)addSegmentedview
+- (void)addSegmentedViewForIOS6
+{
+    UIView *segmentedview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, PHOTOWIDTH, 40)];
+    [segmentedview setBackgroundColor:NAVBARCOLOR];
+    
+    SVSegmentedControl *redSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"公司公告", @"本月促销", @"新产品孵化", nil]];
+    [redSC addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
+	[redSC setFrame:CGRectMake(10, 5, PHOTOWIDTH-20, 25)];
+	redSC.crossFadeLabelsOnDrag = YES;
+    [redSC setTintColor:TABBARCOLOR];
+	redSC.thumb.tintColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.2 alpha:1];
+	redSC.selectedIndex = 0;
+	[segmentedview addSubview:redSC];
+    
+	[self.view addSubview:segmentedview];
+	
+    _tableView.top += segmentedview.height;
+    _tableView.height -= 44;
+}
+
+- (void)addSegmentedView
 {
     UIView *segmentedview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, PHOTOWIDTH, 30)];
     [segmentedview setBackgroundColor:NAVBARCOLOR];
@@ -128,9 +155,8 @@
     
     [self.view addSubview:segmentedview];
     
-    UIEdgeInsets edgeInsets = _tableView.contentInset;
-    edgeInsets.top += segmentedController.height;
-    [_tableView setContentInset:edgeInsets];
+    _tableView.top += segmentedview.height;
+    _tableView.height -= 80;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -233,7 +259,13 @@
 #pragma mark -
 - (void)segmentChanged:(UISegmentedControl*)sender
 {
-    _pageIndex = sender.selectedSegmentIndex;
+    if ([sender isKindOfClass:[UISegmentedControl class]]) {
+        _pageIndex = sender.selectedSegmentIndex;
+    } else {
+        SVSegmentedControl *svSender = (SVSegmentedControl *)sender;
+        _pageIndex = svSender.selectedIndex;
+    }
+
     [_tableView reloadData];
     
     if (_pageIndex == 0) {

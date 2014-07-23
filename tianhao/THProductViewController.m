@@ -53,6 +53,11 @@
     [self addFreshView];
     [self addLoadMoreButton];
     [self fetchProduct:0];
+    
+    if (is_ios7) {
+        _collectionView.height -= 50;
+    }
+
 }
 
 - (void)initCollectionView
@@ -96,7 +101,7 @@
     _bottomRefresh = [UIButton buttonWithType:UIButtonTypeCustom];
     [_bottomRefresh setTitle:@"加载更多" forState:UIControlStateNormal];
     [_bottomRefresh setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [_bottomRefresh setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 5, 0)];
+    [_bottomRefresh setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 15, 0)];
     [_bottomRefresh addTarget:self action:@selector(upToRefresh) forControlEvents:UIControlEventTouchUpInside];
     _bottomRefresh.frame = CGRectMake(0, _collectionView.height-114-44, 320, 44);
     _activityView= [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(90 , 3, 30, 30)];
@@ -175,11 +180,13 @@
     
     THCommonCollectionViewCell *cell = (THCommonCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    THProduct *product = [_productData objectAtIndex:indexPath.row];
-    NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, product.iconUrl];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"] options:SDWebImageRetryFailed];
-//    [cell.titleLabel setText:[NSString stringWithFormat:@"%@ %@",product.name ,product.model]];
-    [cell.titleLabel setText:product.model];
+    if (_productData.count > indexPath.row) {
+        THProduct *product = [_productData objectAtIndex:indexPath.row];
+        NSString *urlstr = [NSString stringWithFormat:@"%@/%@", THImageUrl, product.iconUrl];
+        [cell.imageView setImageWithURL:[NSURL URLWithString:urlstr] placeholderImage:[UIImage imageNamed:@"DefaultImage"] options:SDWebImageRetryFailed];
+        //    [cell.titleLabel setText:[NSString stringWithFormat:@"%@ %@",product.name ,product.model]];
+        [cell.titleLabel setText:product.model];
+    }
     
     return cell;
 }

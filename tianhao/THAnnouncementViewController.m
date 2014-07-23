@@ -53,7 +53,11 @@
 {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    if (is_ios7) {
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    } else {
+        self.navigationController.navigationBar.tintColor = [UIColor redColor];
+    }
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
 }

@@ -27,12 +27,20 @@
     
     //tab
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    [tabbarController.tabBar setBarTintColor:TABBARCOLOR];
+    if (is_ios7) {
+        [tabbarController.tabBar setBarTintColor:TABBARCOLOR];
+    } else {
+        [tabbarController.tabBar setTintColor:TABBARCOLOR];
+    }
     [tabbarController setViewControllers:[NSArray arrayWithObjects:homeViewController, productViewController, disoverViewController, moreViewController, nil]];
     
     //nav
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
-    [navigationController.navigationBar setBarTintColor:NAVBARCOLOR];
+    if (is_ios7) {
+        [navigationController.navigationBar setBarTintColor:NAVBARCOLOR];
+    } else {
+        [navigationController.navigationBar setBackgroundColor:NAVBARCOLOR];
+    }
     navigationController.navigationBar.translucent = NO;
     navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     

@@ -30,6 +30,8 @@
                                                  color_with_rgb(37, 43, 52), UITextAttributeTextShadowColor,
                                                  [NSValue valueWithCGSize:CGSizeMake(1, 1)],UITextAttributeTextShadowOffset,
                                                  nil] forState:UIControlStateNormal];
+        
+        [self.tabBarController.tabBar setTranslucent:NO];
     }
     return self;
 }
